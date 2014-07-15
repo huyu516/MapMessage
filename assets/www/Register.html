@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+	<script src="lib/cordova.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="lib/database.support.js"></script>
+</head> 
+<body> 
+<div data-role="page" >
+	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
+		<a href="Login.html" data-ajax="false" >返&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp回</a>
+		<h1>用户注册</h1>
+        <a href="#" onclick="BaseUtil.exit();">退出程序</a>
+    </div>
+	<div role="main">
+		<form>
+	        <ul data-role="listview" data-inset="true">
+	            <li data-role="fieldcontain">
+	                <label for="user_id">用户账号：</label>
+	            	<input id="user_id" name="user_id" type="text" />
+	            </li>
+                <li data-role="fieldcontain">
+                    <label for="user_name">用户名称：</label>
+                    <input id="user_name" name="user_name" type="text" />
+                </li>
+	            <li data-role="fieldcontain">
+	                <label for="user_pwd1">密&nbsp;码:</label>
+	            	<input id="user_pwd1" name="user_pwd1" type="password" /> 
+	            </li>
+	            <li data-role="fieldcontain">
+	                <label for="user_pwd2">确认密码:</label>
+	            	<input id="user_pwd2" name="user_pwd2" type="password" /> 
+	            </li>
+	            <li class="ui-body">
+	                <fieldset class="ui-grid-a">
+   		 				<div class="ui-block-a">
+   		 					<button type="button" data-theme="a" onclick="register();" >注册</button>
+    					</div>
+    					<div class="ui-block-b">
+    						<button type="reset" >重置</button>
+    					</div>
+					</fieldset>
+	            </li>
+	        </ul>
+        </form>
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>
+</div>
+</body>
+<script>
+<!--
+	function register() {
+		
+		var user_id = jQuery("#user_id").val();
+        var user_name = jQuery("#user_name").val();
+		var user_pwd1 = jQuery("#user_pwd1").val();
+		var user_pwd2 = jQuery("#user_pwd2").val();
+		
+		if(BaseUtil.isEmpty(user_id)) {
+            BaseUtil.alert("请输入用户账号！");
+            return;
+        }
+
+        if(BaseUtil.isEmpty(user_name)) {
+            BaseUtil.alert("请输入用户名称！");
+            return;
+        }
+
+        if(BaseUtil.isEmpty(user_pwd1)) {
+            BaseUtil.alert("请输入密码！");
+            return
+        }
+
+        if(BaseUtil.isEmpty(user_pwd2)) {
+            BaseUtil.alert("请输入确认密码！");
+            return
+        }
+
+        if(user_pwd1 != user_pwd2) {
+            BaseUtil.alert("两次密码输入不一致！");
+            return;
+        }
+
+        var select_sql = "select count(*) as count from userinfo where user_id = ?";
+        DBUtil.select(select_sql, [user_id], function(tx, results) {
+            var user_count = DBUtil.resultsToNum(results);
+            if(user_count > 0) {
+                BaseUtil.alert("该用户账号已经存在！")
+            } else {
+                var insert_sql = "insert into UserInfo(user_id, user_name, user_pwd) values(?,?,?)"
+                DBUtil.execute(insert_sql, [user_id, user_name, user_pwd1]);
+
+                window.localStorage.removeItem(Consts.KEEP_LOGIN);
+                window.localStorage.removeItem(Consts.USER_ID);
+                window.localStorage.removeItem(Consts.USER_PWD);
+
+                window.location = "MsgSearch.html";
+            }
+        })  // end DBUtil.select
+	}
+
+-->
+</script>
+</html>

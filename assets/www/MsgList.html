@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<link rel="stylesheet" href="lib/mobiscroll/mobiscroll.css" />
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+	<script src="lib/mobiscroll/mobiscroll.js" ></script>
+	<script src="lib/common.js"></script>
+    <script src="lib/cordova.js"></script>
+    <script src="lib/database.support.js"></script>
+</head> 
+<body> 
+<div data-role="page" >
+	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
+		<a href="Login.html" data-ajax="false" >重新登录</a>
+		<h1>地图信息</h1>
+		<a href="#" >退出</a>
+		<div data-role="navbar">
+			<ul>
+			    <li><a href="#" class="ui-btn-active">信息查询</a></li>
+			    <li><a href="#" data-theme="c" >地图模式</a></li>
+			</ul>
+		</div>
+	</div>
+	<div role="main">
+		<ul id="ulMsgList" data-role="listview" data-inset="true">
+			<!--  
+    		<li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+    		-->
+            <!--
+    		<li>
+    			<a href="index.html">
+	        		<h2>Stephen Weber</h2>
+	        		<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+	        		<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+	        		<p class="ui-li-aside"><strong>6:24</strong>PM</p>
+    			</a>
+    		</li>
+    		-->
+		</ul>
+		<div id="divLoading" style="padding-left:20px;margin-top:5px;margin-bottom:5px;">
+			<img src='lib/images/loading.gif' alt='正在加载' >正在加载...</img>
+		</div>	
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>	
+</div>
+</body>
+<script>
+<!--
+    var send_name = window.sessionStorage.getItem("MsgList_send_name");
+    var content = window.sessionStorage.getItem("MsgList_content");
+    var send_date_start = window.sessionStorage.getItem("MsgList_send_date_start");
+    var send_date_end = window.sessionStorage.getItem("MsgList_send_date_end");
+    var distance = window.sessionStorage.getItem("MsgList_distance");
+
+    var page_no = 1;
+    var page_size = 10;
+
+//  MapMsg
+//  (msg_id, content, sender_id, sender_name, send_date, longitude, latitude, is_top, top_id);
+
+    function queryData() {
+
+        var sql = "select * from MapMsg Limit 10 Offset 10";
+        DBUtil.select(sql, [], function(tx, results) {
+        
+            var resutList = DBUtil.resultsToList(results);
+            
+            if(resutList.length < page_size) {
+            	var tipHTML = "<img src='lib/images/right.png' style='width:25px;height:25px;'>"
+            				+ "    已加载完全部数据！"
+            				+ "</img>"
+            	jQuery("#divLoading").html(tipHTML);
+                $(window).unbind("scroll");
+            }
+            
+            var innerHTML = "";
+            for(var i = 0; i < resutList.length; i++) {
+            	var obj = resutList[i]
+                innerHTML += "<li>";
+                innerHTML += "    <a href='#'>";
+                innerHTML += "	      <h2>" + obj.msg_id + " - " + obj.send_date + "</h2>";
+                innerHTML += "	      <p><strong>" + new Date(obj.send_date).getTime() + "</strong></p>";
+                innerHTML += "		  <p>we've got a meeting with the jQuery team.</p>";
+                innerHTML += " 		  <p class='ui-li-aside'><strong>6:24</strong>PM</p>"; 
+                innerHTML += "    </a>"
+                innerHTML += "</li>" 
+            }
+            
+            jQuery("#ulMsgList").append(innerHTML).listview("refresh");
+
+            page_no++;
+        })
+    }
+
+	document.addEventListener("deviceready", onDeviceReady, false);	
+	function onDeviceReady() {
+		queryData();
+
+        $(window).bind("scroll", function(){
+            if(BaseUtil.isPageBottom())
+                queryData();
+        })
+	}   
+  
+-->
+</script>
+</html>

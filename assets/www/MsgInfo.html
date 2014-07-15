@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<link rel="stylesheet" href="lib/mobiscroll/mobiscroll.css" />
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+	<script src="lib/mobiscroll/mobiscroll.js" ></script>
+	<script src="lib/common.js"></script>
+    <script src="lib/cordova.js"></script>
+    <script src="lib/database.support.js"></script>
+</head> 
+<body> 
+<div data-role="page" >
+	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
+		<a href="Login.html" data-ajax="false" >重新登录</a>
+		<h1>地图信息</h1>
+		<a href="#" >退出</a>
+		<div data-role="navbar">
+			<ul>
+			    <li><a href="#" class="ui-btn-active">信息查询</a></li>
+			    <li><a href="#" data-theme="c" >地图模式</a></li>
+			</ul>
+		</div>
+	</div>
+	<div role="main">
+		<ul id="ulMsgList" data-role="listview" data-inset="true">
+		</ul>
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>	
+</div>
+</body>
+<script>
+
+    var top_id = 1111;
+	
+	document.addEventListener("deviceready", onDeviceReady, false);	
+	function onDeviceReady() {
+		DBUtil.initOnce();
+		
+		// top_msg		   
+		var sql = "select * from MapMsg where msg_id = ?";
+        DBUtil.select(sql, [top_id], function(tx, results) {
+        		
+            var msgObj = DBUtil.resultsToObj(results);
+            var innerHTML = buildMapMsgHtml(msgObj);
+            jQuery("#ulMsgList").append(innerHTML).listview("refresh");
+            
+        })
+        
+        // reply to top
+        sql = "select * from MapMsg where top_id = ? order by msg_id";
+        DBUtil.select(sql, [top_id], function(tx, results) {
+        		
+            var msgList = DBUtil.resultsToList(results);
+            
+            var innerHTML = "";
+            for(var i=0; i<msgList.length; i++) {
+            	var msgObj = msgList[i];
+            	innerHTML += buildMapMsgHtml(msgObj)
+            }
+            
+            jQuery("#ulMsgList").append(innerHTML).listview("refresh");
+        })
+        
+    }
+
+    function buildMapMsgHtml(msgObj) {
+        var innerHTML = "<li>"
+             		  + "    <a href='#'>"
+                      + "	      <h2>" + msgObj.content + "</h2>"
+                      + "		  <p>" + msgObj.sender_name + "</p>"
+                      + " 		  <p class='ui-li-aside'><strong>" + BaseUtil.datetimeFormat(msgObj.send_date)+ "</strong></p>"
+                      + "    </a>"
+                      + "</li>"
+        return innerHTML;
+    }
+	
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<link rel="stylesheet" href="lib/mobiscroll/mobiscroll.css" />
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+	<script src="lib/common.js"></script>
+    <script src="lib/cordova.js"></script>
+    <script src="lib/database.support.js"></script>
+    <script src="lib/mobiscroll/mobiscroll.js"></script> 
+</head> 
+<body> 
+<div data-role="page" >
+	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
+		<a href="#" data-ajax="false" onclick="reLogin();" >重新登录</a>
+		<h1>地图信息</h1>
+        <a href="#" onclick="BaseUtil.exit();">退出程序</a>
+        <div data-role="navbar">
+			<ul>
+			    <li><a href="#" class="ui-btn-active">信息查询</a></li>
+			    <li><a href="#" data-theme="c" >地图模式</a></li>
+			</ul>
+		</div>
+	</div>
+	<div role="main">
+		<form action="#" >
+	        <ul data-role="listview" data-inset="true">
+	        	<li data-role="fieldcontain">
+	                <label for="send_name">主题发送人名称：</label>
+	            	<input id="send_name" name="send_name" type="text" />
+	            </li>
+	            <li data-role="fieldcontain">
+	                <label for="content">主题内容：</label>
+	            	<input id="content" name="content" type="text" />
+	            </li>
+	            <li data-role="fieldcontain">
+					<label for="send_date_start">检查日期:</label>
+					<input id="send_date_start" name="send_date_start" type="text" />
+					<label for="send_date_end">至</label>
+					<input id="send_date_end" name="send_date_end" type="text" />
+				</li>
+				<li data-role="fieldcontain">
+					<label for="distance">据当前位置距离（公里）:</label>
+					<input id="distance" name="distance" value="10" defaultValue="10" type="range" min="1" max="30">
+				</li>
+	            <li class="ui-body">
+	            	<fieldset class="ui-grid-a">
+   		 				<div class="ui-block-a">
+   		 					<button type="button" data-theme="a" onclick="search();" >登陆</button>
+    					</div>
+    					<div class="ui-block-b">
+    						<button type="button" onclick="BaseUtil.resetForm();">重置</button>
+    					</div>
+					</fieldset>
+	            </li>
+	        </ul>
+        </form>
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>
+</div>
+</body>
+<script>
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        BaseUtil.initScrollDate("send_date_start");
+        BaseUtil.initScrollDate("send_date_end", BaseUtil.dateFormat(new Date()))
+    }
+    
+    function reLogin() {
+    	window.localStorage.removeItem(Consts.KEEP_LOGIN);
+        window.localStorage.removeItem(Consts.USER_ID);
+        window.localStorage.removeItem(Consts.USER_PWD);
+
+        window.location = "Login.html";
+    }
+    
+    function search() {
+        var fields = ["send_name", "content", "send_date_start", "send_date_end", "distance"];
+        for(var i = 0; i < fields.length; i++) {
+            var field_name = fields[i];
+            var field_value = jQuery("#" + field_name).val();
+            window.sessionStorage.setItem("MsgList_" + field_name, field_value)
+        }
+    }
+	
+</script>
+</html>

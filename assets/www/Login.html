@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>登陆</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+	<script src="lib/common.js"></script>
+    <script src="lib/cordova.js"></script>
+    <script src="lib/database.support.js"></script>
+</head> 
+<body> 
+<div data-role="page" >
+	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
+		<a href="Register.html" data-ajax="false">注册账户</a>
+		<h1>用户登陆</h1>
+		<a href="#" onclick="BaseUtil.exit();">退出程序</a>
+	</div>
+	<div role="main">
+		<form action="#" >
+	        <ul data-role="listview" data-inset="true">
+	            <li data-role="fieldcontain">
+	                <label for="user_id">用户账号：</label>
+	            	<input id="user_id" name="user_id" type="text" value="admin" />
+	            </li>
+	            <li data-role="fieldcontain">
+	                <label for="user_pwd">密&nbsp;码:</label>
+	            	<input id="user_pwd" name="user_pwd" type="password" value="admin" />
+	            </li>
+	            <li data-role="fieldcontain">
+	                <input type="checkbox" name="keep_login" id="keep_login" data-theme="b" />
+	                <label for="keep_login">保持登陆状态</label>
+	            </li>
+	            <li class="ui-body" >
+					<fieldset class="ui-grid-a">
+   		 				<div class="ui-block-a">
+   		 					<button type="button" data-theme="a" onclick="login();" >登陆</button>
+    					</div>
+    					<div class="ui-block-b">
+    						<button type="reset" >重置</button>
+    					</div>
+					</fieldset>
+				</li>
+	        </ul>
+        </form>
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>
+</div>
+</body>
+<script>
+
+	document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+    	DBUtil.initOnce();
+		// keep_login is a string
+        var keep_login = window.localStorage.getItem(Consts.KEEP_LOGIN);
+        if(keep_login == "true") {
+            var user_id = window.localStorage.getItem(Consts.USER_ID);
+            var user_pwd = window.localStorage.getItem(Consts.USER_PWD);
+
+            jQuery("#user_id").val(user_id);
+            jQuery("#user_pwd").val(user_pwd);
+
+            jQuery("#keep_login").attr('checked', "true").checkboxradio("refresh");
+
+            login();
+        } else {
+            jQuery("#keep_login").removeAttr('checked').checkboxradio("refresh");
+        }
+    }
+    
+    function login() {
+    
+        var user_id = jQuery("#user_id").val();
+    	var user_pwd = jQuery("#user_pwd").val();
+    	
+    	if(BaseUtil.isEmpty(user_id)) {
+    		BaseUtil.alert("请输入用户账号！");
+    		return;
+    	}
+    	
+    	if(BaseUtil.isEmpty(user_pwd)) {
+    		BaseUtil.alert("请输入密码！");
+    		return;
+    	}
+    	    	
+        var sql = "SELECT count(*) as count FROM UserInfo WHERE user_id = ? AND user_pwd = ?"
+    	DBUtil.select(sql, [user_id, user_pwd], function(tx, results) {
+            var user_count = results.rows.item(0).count;
+            if(user_count != 0) {
+
+                var keep_login = jQuery("#keep_login").is(":checked");
+
+                window.localStorage.setItem(Consts.KEEP_LOGIN, keep_login);
+                window.localStorage.setItem(Consts.USER_ID, user_id);
+
+                if(keep_login) 
+                    window.localStorage.setItem(Consts.USER_PWD, user_pwd)
+                else
+                    window.localStorage.removeItem(Consts.USER_PWD);
+
+            	window.location = "MsgSearch.html";
+            } else {
+            	BaseUtil.alert("请输入正确的用户账户和密码！");
+            }
+        })  // end DBUtil.select
+    }
+    
+</script>
+</html>
