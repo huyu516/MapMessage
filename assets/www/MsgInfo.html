@@ -63,7 +63,7 @@
 
 	document.addEventListener("deviceready", onDeviceReady, false);	
 	function onDeviceReady() {
-		// reply to top
+		// replys to top
         sql = "select * from MapMsg where top_id = ? order by msg_id";
         DBUtil.select(sql, [top_id], function(tx, results) {
         		
@@ -117,7 +117,7 @@
 
         window.sessionStorage.setItem(SCROLL_TO_BOTTOM, true)
         
-        window.location = "MsgInfo.html";
+        BaseUtil.goBack();
     }
 	
 </script>

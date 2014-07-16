@@ -50,7 +50,7 @@
     function queryData() {
 
         var offset = (page_no - 1) * page_size;
-        var sql = "select * from MapMsg order by msg_id Limit ? Offset ? ";
+        var sql = "select * from MapMsg where is_top = 'true' order by msg_id desc limit ? offset ? ";
         DBUtil.select(sql, [page_size, offset], function(tx, results) {
         
             var resutList = DBUtil.resultsToList(results);

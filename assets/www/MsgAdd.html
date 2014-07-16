@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>注册</title>
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
+	<script src="lib/jquery.mobile/jquery.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
+    <script src="lib/cordova.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="lib/database.support.js"></script>
+</head> 
+<body> 
+<div data-role="page" >
+    <div data-role="header" role="banner" data-position="fixed" data-theme="b">
+    	<a href="#" onclick="BaseUtil.goBack();">返&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp回</a>
+        <h1>地图信息</h1>
+        <a href="#" onclick="BaseUtil.exit();">退出程序</a>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="MsgSearch.html" data-ajax="false" class="ui-btn-active">信息查询</a></li>
+                <li><a href="Map.html" data-ajax="false" data-theme="c" >地图模式</a></li>
+            </ul>
+        </div>
+    </div>
+	<div role="main">
+		<li data-role="fieldcontain">
+        	<label for="new_content"><strong>发送消息：</strong></label>
+        	<textarea id="new_content" name="new_content" cols="40" rows="10" ></textarea>
+        	<div id="divUserName" align="right" style="padding-top:5px;padding-right:5px" />
+        </li>
+        <li class="ui-body" >
+			<fieldset class="ui-grid-a">
+ 				<div class="ui-block-a">
+ 					<button type="button" data-theme="a" onclick="sendMsg();" >发送</button>
+				</div>
+				<div class="ui-block-b">
+					<button type="reset" >重置</button>
+				</div>
+			</fieldset>
+		</li>	
+	</div>
+    <div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+    	<p style="padding-left:20px">Copyright © 2014 Huyu. All Rights Reserved</p>
+    </div>	
+</div>
+</body>
+<script>
+
+    var user_id = window.localStorage.getItem(Consts.USER_ID);
+    var user_name = window.localStorage.getItem(Consts.USER_NAME);
+																			
+    var longitude = window.sessionStorage.getItem("MsgAdd_LONGITUDE") * 1;
+    var latitude = window.sessionStorage.getItem("MsgAdd_LATITUDE") * 1;
+
+    function sendMsg() {
+        var new_content = jQuery("#new_content").val();
+
+    	if(BaseUtil.isEmpty(new_content)) {
+            BaseUtil.alert("请输入消息内容！");
+            return;
+        }
+
+        var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
+                + "values(?,?,?,?,?,?,?,?,?)"
+        DBUtil.execute(sql, [BaseUtil.getUUID(), new_content, user_id, user_name, new Date(), longitude, latitude, true, null]);
+        
+        window.location = "Map.html";
+    }
+    
+    document.addEventListener("deviceready", onDeviceReady, false);	
+	function onDeviceReady() {
+		jQuery("#divUserName").html(user_name);	
+	}
+	
+</script>
+</html>

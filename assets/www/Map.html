@@ -7,11 +7,10 @@
 	<script src="lib/common.js"></script>
     <script src="lib/cordova.js"></script>
     <script src="lib/database.support.js"></script>
-    <script src="lib/common.js"></script>
 	<script src="http://api.map.baidu.com/api?type=quick&ak=dXnUMHEdQQnzwAW8fsQpOtb9&v=1.0"></script>
 	<title>BaiduMap</title>
 	<style type="text/css">
-		body,html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;} @media (max-device-width: 780px){#golist{display: block!important;}}#golist {display: none;}
+		body,html,#allmap {width:100%;height:100%;overflow:hidden;margin:0;} @media (max-device-width: 780px){#golist{display:block!important;}}#golist {display:none;}
 	</style>
 </head>
 <body>
@@ -19,27 +18,20 @@
 </body>
 </html>
 <script>
-
-	var map = new BMap.Map("allmap");               // 创建Map实例
 	
-	var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
-	map.centerAndZoom(point,15);                    // 初始化地图, 设置中心点坐标和地图级别。
-	
-	map.addControl(new BMap.ZoomControl());         // 添加地图缩放控件
-
-    // 添加自定义控件
-    // 定义一个控件类，即function      
-	function ZoomControl(){      
-	    // 设置默认停靠位置和偏移量    
-	    this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;
-	    // 第一个参数正向右，第二个参数正向上      
-	    this.defaultOffset = new BMap.Size(40, 40);      
+	var map = new BMap.Map("allmap");               	// 创建Map实例
+	var point = new BMap.Point(116.404, 39.915);    	// 创建点坐标
+	map.centerAndZoom(point,15);                    	// 初始化地图, 设置中心点坐标和地图级别。
+	map.addControl(new BMap.ZoomControl());         	// 添加地图缩放控件
+		
+/***********************自定义控件start********************/     
+	function ZoomControl(){                         	// 定义一个自定义控件类 
+	    this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;   // 设置默认停靠位置
+	    this.defaultOffset = new BMap.Size(40, 40);     // 设置偏移量, 第一个参数正向右，第二个参数正向上      
 	}      
-	// 通过JavaScript的prototype属性继承于BMap.Control     
-	ZoomControl.prototype = new BMap.Control();   
+	ZoomControl.prototype = new BMap.Control();         // 继承BMap.Control      
 	
-	// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回     
-	// 在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中     
+	// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回  
 	ZoomControl.prototype.initialize = function(map) {      
 		var divHtml = "<div style='border:2px solid gray;background-color:white;font-size:20px;'>"
 					+ "    <a href='#' style='text-decoration:none' onclick='location=\"MsgSearch.html\"' >信息查询</a>&nbsp;"
@@ -51,9 +43,70 @@
 		return divObj;    
 	} 
 	
-	var myZoomCtrl = new ZoomControl();      
-	// 添加到地图当中      
-	map.addControl(myZoomCtrl) 
+	map.addControl(new ZoomControl())                   // 把自定义控件添加到地图当中      
+/***********************自定义控件end**********************/  
+    
+    map.addEventListener("dblclick", function(e) {      // 双击地图添加新的消息
+        window.sessionStorage.setItem("MsgAdd_LONGITUDE", e.point.lng);
+    	window.sessionStorage.setItem("MsgAdd_LATITUDE", e.point.lat);
+    	window.location = "MsgAdd.html";
+    });   
+  
+    document.addEventListener("deviceready", onDeviceReady, false);	
+	function onDeviceReady() {
+/***********************地图信息标注点start*********************/ 
+        var sql = "select * from MapMsg where is_top = 'true' ";
+        DBUtil.select(sql, [], function(tx, results) {
+            var resutList = DBUtil.resultsToList(results);
+            for (var i = 0; i < resutList.length; i++) {
+            	var msgObj = resutList[i]; 
+            		  
+            	var marker = new BMap.Marker(new BMap.Point(msgObj.longitude, msgObj.latitude));
+				map.addOverlay(marker);
+				
+				var MSG_OBJ = "MSG_OBJ";
+				jQuery(marker).data(MSG_OBJ, msgObj);  
+				
+				marker.addEventListener("click", function(){
+				
+					var topMsg = jQuery(this).data(MSG_OBJ);
+					
+					// replys to top
+			        var sql = "select * from MapMsg where top_id = ? order by msg_id";
+			        DBUtil.select(sql, [topMsg.msg_id], function(tx, results) {
+			        		
+			            var msgList = DBUtil.resultsToList(results);
+			            
+			            var infoWindowHTML = "<div style='overflow:auto;'>"
+			            				   + "    <div style='width:100%'>" + topMsg.content + "</div>";		    
+
+			            for(var i=0; i<msgList.length; i++) {
+			            	var msgObj = msgList[i];
+			            	
+			            	infoWindowHTML += "   <div style='width:100%'>" + msgObj.content + "</div>";	
+			            }
+			            
+			            infoWindowHTML += "</div>";	
+			            
+			            var opts = {                                                 // 信息窗口设置
+			            	width : 180,      
+			            	height: 300,      
+			            	title : "<a href='#' onclick='viewMsg(" + topMsg.msg_id + ")'>发送消息</a>"  
+			       		}
+			            
+			            var infoWindow = new BMap.InfoWindow(infoWindowHTML, opts);  // 创建信息窗口对象
+			        	map.openInfoWindow(infoWindow, marker.getPosition());        // 打开信息窗口
+			        })    // end DBUtil.select ... top_id = ?   
+			    })    // end marker.addEventListener 
+            }    // end for
+        })    // end DBUtil.select ... is_top = "true"
+/***********************地图信息标注点end***********************/ 
+	}    // end onDeviceReady   
+	
+	function viewMsg(msg_id) {
+	    window.sessionStorage.setItem(Consts.MSGINFO_TOP_ID, msg_id);
+        window.location = "MsgInfo.html";
+	}   
 
 </script>
 

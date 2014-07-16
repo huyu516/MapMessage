@@ -14,8 +14,9 @@
     <file path="/Login.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405475352377" ignored="false" />
     <file path="/MsgInfo.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405476428856" ignored="false" />
     <file path="/Register.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405425905394" ignored="false" />
-    <file path="/Map.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405429289149" ignored="false" />
+    <file path="/Map.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405496317773" ignored="false" />
     <file path="/MsgList.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405473455154" ignored="false" />
+    <file path="/MsgAdd.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405496801156" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -65,7 +66,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -78,9 +79,25 @@
       <file leaf-file-name="Map.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="48" selection-start="1504" selection-end="1664" vertical-scroll-proportion="0.69325155">
+            <state line="84" column="39" selection-start="3584" selection-end="3601" vertical-scroll-proportion="0.5521472">
               <folding>
-                <marker date="1405481202521" expanded="false" signature="1531:1575" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="1507:1567" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="1602:1622" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="1710:1730" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="3381:3395" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="3440:3450" placeholder="..." />
+                <marker date="1405501562868" expanded="true" signature="3651:3661" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MsgAdd.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MsgAdd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-6.923077">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#li#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,6 +125,7 @@
         <option value="$PROJECT_DIR$/lib/common.js" />
         <option value="$PROJECT_DIR$/Login.html" />
         <option value="$PROJECT_DIR$/MsgInfo.html" />
+        <option value="$PROJECT_DIR$/MsgAdd.html" />
         <option value="$PROJECT_DIR$/Map.html" />
       </list>
     </option>
@@ -142,7 +160,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -178,6 +195,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,19 +228,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -251,6 +256,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -264,6 +282,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -287,13 +312,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -310,7 +328,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="729" extended-state="1" />
+    <frame x="0" y="0" width="1366" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -394,20 +412,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MsgInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="71" selection-start="1561" selection-end="1561" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="25" selection-start="3245" selection-end="3259" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="126" column="25" selection-start="3245" selection-end="3259" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/cordova.js">
@@ -417,23 +424,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/database.support.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="38" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="38" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="319" selection-end="322" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="20" selection-start="319" selection-end="322" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/database.support.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="47" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="88" column="47" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/cordova.js">
@@ -462,23 +463,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/database.support.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="43" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="43" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="4" selection-start="3204" selection-end="3221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="125" column="4" selection-start="3204" selection-end="3221" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgInfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="40" selection-start="365" selection-end="365" vertical-scroll-proportion="-3.4969325">
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -493,17 +490,29 @@
     <entry file="file://$PROJECT_DIR$/MsgList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="38" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.061349694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MsgAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-6.923077">
           <folding>
-            <marker date="1405478793145" expanded="false" signature="-1:-1" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#li#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="48" selection-start="1504" selection-end="1664" vertical-scroll-proportion="0.69325155">
+        <state line="84" column="39" selection-start="3584" selection-end="3601" vertical-scroll-proportion="0.5521472">
           <folding>
-            <marker date="1405481202521" expanded="false" signature="1531:1575" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="1507:1567" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="1602:1622" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="1710:1730" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="3381:3395" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="3440:3450" placeholder="..." />
+            <marker date="1405501562868" expanded="true" signature="3651:3661" placeholder="..." />
           </folding>
         </state>
       </provider>

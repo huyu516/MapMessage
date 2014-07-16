@@ -13,29 +13,27 @@
    DBUtil.initOnce = function() {
    
    	   DBUtil.execute('create table if not exists MapMsg (msg_id primary key, content, sender_id, sender_name, send_date, longitude, latitude, is_top, top_id)');		
-   	   DBUtil.select('select count(*) as count from MapMsg', [], function(tx, results) {
-           var msg_count = results.rows.item(0).count;           
+   	   DBUtil.select('select count(*) from MapMsg', [], function(tx, results) {
+           var msg_count = DBUtil.resultsToNum(results);         
            if(msg_count === 0) {
-           	   for (var i=0; i<50; i++) {
-           	   		var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
-           	   			    + "values(?,?,?,?,?,?,?,?,?)"
-           	   		DBUtil.execute(sql, [BaseUtil.getUUID(), "msg"+i, "admin", "admin", new Date(), 111, 222, true, 123456]);
-           	   }	
-           	   
            	   var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
-           	   		   + "values(?,?,?,?,?,?,?,?,?)"
-		       DBUtil.execute(sql, [1111, "饭店在哪里呢？", "admin", "admin", new Date(), 111, 222, true, null]);
-		       DBUtil.execute(sql, [1112, "不知道？", "tom", "tom", new Date(), 111, 222, false, 1111]);
-		       DBUtil.execute(sql, [1113, "向东走？", "andy", "andy", new Date(), 111, 222, false, 1111]);
-		       DBUtil.execute(sql, [1114, "在向西？", "mark", "mark", new Date(), 111, 222, false, 1111]);	
+           	   		   + "values(?,?,?,?,?,?,?,?,?)";
+		       DBUtil.execute(sql, [1111, "饭店在哪里呢？", "admin", "admin", new Date(), 116.404, 39.915, true, null]);
+		       DBUtil.execute(sql, [1112, "不知道。", "admin", "admin", new Date(), null, null, false, 1111]);
+		       DBUtil.execute(sql, [1113, "向东走。", "admin", "admin", new Date(), null, null, false, 1111]);
+		       DBUtil.execute(sql, [1114, "在向西。", "admin", "admin", new Date(), null, null, false, 1111]);	
+		       
+		       DBUtil.execute(sql, [1115, "火车站怎么走？", "admin", "admin", new Date(), 116.400, 39.910, true, null]);
            }
  	   })
 
-       DBUtil.execute('CREATE TABLE IF NOT EXISTS UserInfo (user_id, user_name, user_pwd)');
- 	   DBUtil.select('select count(*) as count from UserInfo', [], function(tx, results) {
-           var user_count = results.rows.item(0).count;
+       DBUtil.execute('create table if not exists UserInfo (user_id, user_name, user_pwd)');
+ 	   DBUtil.select('select count(*) from UserInfo', [], function(tx, results) {
+           var user_count = DBUtil.resultsToNum(results);
            if(user_count === 0) {
-           	   DBUtil.execute('insert into UserInfo(user_id ,user_name, user_pwd) values("admin", "admin", "admin")');
+           	   var sql = "insert into UserInfo(user_id ,user_name, user_pwd)" 
+           	   		   + "values(?, ?, ?)";
+           	   DBUtil.execute(sql, ["admin", "admin", "admin"]);
            }
  	   })
        

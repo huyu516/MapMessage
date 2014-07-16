@@ -120,7 +120,7 @@
     }
     
     BaseUtil.scrollToBottom = function() {
-    	window.scrollTo(0,document.body.scrollHeight); 
+    	window.scrollTo(0, document.body.scrollHeight); 
     }
     
     BaseUtil.goBack = function() {
@@ -134,6 +134,7 @@
     Consts.USER_NAME = "USER_NAME";
     Consts.USER_PWD = "USER_PWD";
     Consts.MSGINFO_TOP_ID = "MSGINFO_TOP_ID"
+    
  
 
 	  
