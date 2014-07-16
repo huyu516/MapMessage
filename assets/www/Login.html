@@ -55,7 +55,7 @@
 
 	document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-    	DBUtil.execute('delete from MapMsg');
+    	// DBUtil.execute('delete from MapMsg');
     	DBUtil.initOnce();
 		// keep_login is a string
         var keep_login = window.localStorage.getItem(Consts.KEEP_LOGIN);
@@ -71,7 +71,7 @@
             login();
         } else {
             jQuery("#keep_login").removeAttr('checked').checkboxradio("refresh");
-        }
+        }    
     }
     
     function login() {
@@ -89,7 +89,7 @@
     		return;
     	}
     	    	
-        var sql = "SELECT * FROM UserInfo WHERE user_id = ? AND user_pwd = ?"
+        var sql = "select * from UserInfo where user_id = ? and user_pwd = ?"
     	DBUtil.select(sql, [user_id, user_pwd], function(tx, results) {
             var user = DBUtil.resultsToObj(results);
             if(user != null) {
@@ -107,8 +107,8 @@
             	window.location = "MsgSearch.html";
             } else {
             	BaseUtil.alert("请输入正确的用户账户和密码！");
-            }
-        })  // end DBUtil.select
+            }    // end if    
+        })    // end DBUtil.select
     }
     
 </script>

@@ -79,15 +79,8 @@
       <file leaf-file-name="Map.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="39" selection-start="3584" selection-end="3601" vertical-scroll-proportion="0.5521472">
-              <folding>
-                <marker date="1405501562868" expanded="true" signature="1507:1567" placeholder="..." />
-                <marker date="1405501562868" expanded="true" signature="1602:1622" placeholder="..." />
-                <marker date="1405501562868" expanded="true" signature="1710:1730" placeholder="..." />
-                <marker date="1405501562868" expanded="true" signature="3381:3395" placeholder="..." />
-                <marker date="1405501562868" expanded="true" signature="3440:3450" placeholder="..." />
-                <marker date="1405501562868" expanded="true" signature="3651:3661" placeholder="..." />
-              </folding>
+            <state line="88" column="39" selection-start="3672" selection-end="3689" vertical-scroll-proportion="5.153374">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,10 +88,8 @@
       <file leaf-file-name="MsgAdd.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MsgAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-6.923077">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#li#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -194,8 +185,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,6 +219,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -256,19 +260,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -282,13 +273,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -312,6 +296,13 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -329,7 +320,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="729" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -347,7 +338,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -494,26 +485,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MsgAdd.html">
+    <entry file="file://$PROJECT_DIR$/Map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="-6.923077">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#li#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="88" column="39" selection-start="3672" selection-end="3689" vertical-scroll-proportion="5.153374">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Map.html">
+    <entry file="file://$PROJECT_DIR$/MsgAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="39" selection-start="3584" selection-end="3601" vertical-scroll-proportion="0.5521472">
-          <folding>
-            <marker date="1405501562868" expanded="true" signature="1507:1567" placeholder="..." />
-            <marker date="1405501562868" expanded="true" signature="1602:1622" placeholder="..." />
-            <marker date="1405501562868" expanded="true" signature="1710:1730" placeholder="..." />
-            <marker date="1405501562868" expanded="true" signature="3381:3395" placeholder="..." />
-            <marker date="1405501562868" expanded="true" signature="3440:3450" placeholder="..." />
-            <marker date="1405501562868" expanded="true" signature="3651:3661" placeholder="..." />
-          </folding>
+        <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>

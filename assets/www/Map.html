@@ -26,15 +26,18 @@
 		
 /***********************自定义控件start********************/     
 	function ZoomControl(){                         	// 定义一个自定义控件类 
-	    this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;   // 设置默认停靠位置
-	    this.defaultOffset = new BMap.Size(40, 40);     // 设置偏移量, 第一个参数正向右，第二个参数正向上      
+	    this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT       // 设置默认停靠位置
+	    
+	    var offset_left = (window.innerWidth - 220) / 2; // 计算水平偏移, div宽220
+	    this.defaultOffset = new BMap.Size(offset_left, 15);     // 设置偏移量, 第一个参数正向右，第二个参数正向上      
 	}      
 	ZoomControl.prototype = new BMap.Control();         // 继承BMap.Control      
 	
 	// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回  
 	ZoomControl.prototype.initialize = function(map) {      
-		var divHtml = "<div style='border:2px solid gray;background-color:white;font-size:20px;'>"
-					+ "    <a href='#' style='text-decoration:none' onclick='location=\"MsgSearch.html\"' >信息查询</a>&nbsp;"
+		var divHtml = "<div style='border:2px solid gray;background-color:white;font-size:20px;width:220px' align='center' >"
+					+ "    <a href='#' style='text-decoration:none' onclick='location=\"MsgSearch.html\"' >信息查询</a>"
+					+ "    &nbsp;&nbsp;&nbsp;"
 					+ "    <a href='#' style='text-decoration:none' onclick='BaseUtil.exit();' >退出程序</a>"
 					+ "</div>";
 		var divObj = jQuery(divHtml)[0];				  
@@ -103,7 +106,7 @@
 /***********************地图信息标注点end***********************/ 
 	}    // end onDeviceReady   
 	
-	function viewMsg(msg_id) {
+	function viewMsg(msg_id) {                          // 查看某一条主题的相关消息
 	    window.sessionStorage.setItem(Consts.MSGINFO_TOP_ID, msg_id);
         window.location = "MsgInfo.html";
 	}   
