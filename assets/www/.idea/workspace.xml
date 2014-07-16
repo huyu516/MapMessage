@@ -75,32 +75,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MsgList.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MsgList.html">
+      <file leaf-file-name="Map.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="38" selection-start="3142" selection-end="3142" vertical-scroll-proportion="-24.076923">
+            <state line="45" column="48" selection-start="1504" selection-end="1664" vertical-scroll-proportion="0.69325155">
               <folding>
-                <marker date="1405473645923" expanded="false" signature="2395:2418" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="23" selection-start="3546" selection-end="3546" vertical-scroll-proportion="1.4871795">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MsgInfo.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MsgInfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="62" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.44785276">
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1405481202521" expanded="false" signature="1531:1575" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -123,12 +103,12 @@
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/lib/database.support.js" />
         <option value="$PROJECT_DIR$/Register.html" />
-        <option value="$PROJECT_DIR$/Map.html" />
         <option value="$PROJECT_DIR$/MsgSearch.html" />
         <option value="$PROJECT_DIR$/MsgList.html" />
         <option value="$PROJECT_DIR$/lib/common.js" />
         <option value="$PROJECT_DIR$/Login.html" />
         <option value="$PROJECT_DIR$/MsgInfo.html" />
+        <option value="$PROJECT_DIR$/Map.html" />
       </list>
     </option>
   </component>
@@ -162,7 +142,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -198,6 +177,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,6 +210,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -258,19 +251,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -284,13 +264,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -314,6 +287,13 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -330,7 +310,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="729" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="729" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -487,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="39" selection-start="137" selection-end="137" vertical-scroll-proportion="-3.0769231">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="4" selection-start="3204" selection-end="3221" vertical-scroll-proportion="0.0">
@@ -501,27 +474,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MsgInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="40" selection-start="365" selection-end="365" vertical-scroll-proportion="-3.4969325">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="23" selection-start="3546" selection-end="3546" vertical-scroll-proportion="1.4871795">
+        <state line="99" column="23" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.059760958">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="38" selection-start="3142" selection-end="3142" vertical-scroll-proportion="-24.076923">
+        <state line="75" column="38" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.061349694">
           <folding>
-            <marker date="1405473645923" expanded="false" signature="2395:2418" placeholder="..." />
+            <marker date="1405478793145" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MsgInfo.html">
+    <entry file="file://$PROJECT_DIR$/Map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="62" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.44785276">
+        <state line="45" column="48" selection-start="1504" selection-end="1664" vertical-scroll-proportion="0.69325155">
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1405481202521" expanded="false" signature="1531:1575" placeholder="..." />
           </folding>
         </state>
       </provider>
