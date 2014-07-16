@@ -88,18 +88,18 @@
     		return;
     	}
     	    	
-        var sql = "SELECT count(*) as count FROM UserInfo WHERE user_id = ? AND user_pwd = ?"
+        var sql = "SELECT * FROM UserInfo WHERE user_id = ? AND user_pwd = ?"
     	DBUtil.select(sql, [user_id, user_pwd], function(tx, results) {
-            var user_count = results.rows.item(0).count;
-            if(user_count != 0) {
-
+            var user = DBUtil.resultsToObj(results);
+            if(user != null) {
                 var keep_login = jQuery("#keep_login").is(":checked");
 
                 window.localStorage.setItem(Consts.KEEP_LOGIN, keep_login);
-                window.localStorage.setItem(Consts.USER_ID, user_id);
+                window.localStorage.setItem(Consts.USER_ID, user.user_id);
+                window.localStorage.setItem(Consts.USER_NAME, user.user_name)
 
                 if(keep_login) 
-                    window.localStorage.setItem(Consts.USER_PWD, user_pwd)
+                    window.localStorage.setItem(Consts.USER_PWD, user.user_pwd)
                 else
                     window.localStorage.removeItem(Consts.USER_PWD);
 

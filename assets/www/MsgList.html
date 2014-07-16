@@ -15,32 +15,19 @@
 </head> 
 <body> 
 <div data-role="page" >
-	<div data-role="header" role="banner" data-position="fixed" data-theme="b">
-		<a href="Login.html" data-ajax="false" >重新登录</a>
-		<h1>地图信息</h1>
-		<a href="#" >退出</a>
-		<div data-role="navbar">
-			<ul>
-			    <li><a href="#" class="ui-btn-active">信息查询</a></li>
-			    <li><a href="#" data-theme="c" >地图模式</a></li>
-			</ul>
-		</div>
-	</div>
+    <div data-role="header" role="banner" data-position="fixed" data-theme="b">
+        <a href="#" onclick="BaseUtil.goBack();">返&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp回</a>
+        <h1>地图信息</h1>
+        <a href="#" onclick="BaseUtil.exit();">退出程序</a>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="MsgSearch.html" data-ajax="false" class="ui-btn-active">信息查询</a></li>
+                <li><a href="Map.html" data-ajax="false" data-theme="c" >地图模式</a></li>
+            </ul>
+        </div>
+    </div>
 	<div role="main">
 		<ul id="ulMsgList" data-role="listview" data-inset="true">
-			<!--  
-    		<li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
-    		-->
-            <!--
-    		<li>
-    			<a href="index.html">
-	        		<h2>Stephen Weber</h2>
-	        		<p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-	        		<p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-	        		<p class="ui-li-aside"><strong>6:24</strong>PM</p>
-    			</a>
-    		</li>
-    		-->
 		</ul>
 		<div id="divLoading" style="padding-left:20px;margin-top:5px;margin-bottom:5px;">
 			<img src='lib/images/loading.gif' alt='正在加载' >正在加载...</img>
@@ -62,13 +49,11 @@
     var page_no = 1;
     var page_size = 10;
 
-//  MapMsg
-//  (msg_id, content, sender_id, sender_name, send_date, longitude, latitude, is_top, top_id);
-
     function queryData() {
 
-        var sql = "select * from MapMsg Limit 10 Offset 10";
-        DBUtil.select(sql, [], function(tx, results) {
+        var offset = (page_no - 1) * page_size;
+        var sql = "select * from MapMsg order by msg_id Limit ? Offset ? ";
+        DBUtil.select(sql, [page_size, offset], function(tx, results) {
         
             var resutList = DBUtil.resultsToList(results);
             
@@ -84,14 +69,12 @@
             for(var i = 0; i < resutList.length; i++) {
             	var obj = resutList[i]
                 innerHTML += "<li>";
-                innerHTML += "    <a href='#'>";
-                innerHTML += "	      <h2>" + obj.msg_id + " - " + obj.send_date + "</h2>";
-                innerHTML += "	      <p><strong>" + new Date(obj.send_date).getTime() + "</strong></p>";
-                innerHTML += "		  <p>we've got a meeting with the jQuery team.</p>";
-                innerHTML += " 		  <p class='ui-li-aside'><strong>6:24</strong>PM</p>"; 
+                innerHTML += "    <a href='#' onclick='viewMsg(" + obj.msg_id + ")'>";
+                innerHTML += "	      <h2>" + obj.content + "</h2>";
+                innerHTML += "	      <p><strong>" +  BaseUtil.datetimeFormat(obj.send_date) + "&nbsp;&nbsp;" + obj.sender_name + "</strong></p>"
                 innerHTML += "    </a>"
                 innerHTML += "</li>" 
-            }
+            }        
             
             jQuery("#ulMsgList").append(innerHTML).listview("refresh");
 
@@ -103,10 +86,15 @@
 	function onDeviceReady() {
 		queryData();
 
-        $(window).bind("scroll", function(){
+        jQuery(window).bind("scroll", function(){
             if(BaseUtil.isPageBottom())
                 queryData();
         })
+	}
+	
+	function viewMsg(msg_id) {
+	    window.sessionStorage.setItem(Consts.MSGINFO_TOP_ID, msg_id);
+        window.location = "MsgInfo.html";
 	}   
   
 -->

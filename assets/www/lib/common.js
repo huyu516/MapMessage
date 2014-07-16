@@ -119,11 +119,21 @@
         alert("退出程序");
     }
     
+    BaseUtil.scrollToBottom = function() {
+    	window.scrollTo(0,document.body.scrollHeight); 
+    }
+    
+    BaseUtil.goBack = function() {
+    	window.history.go(-1);
+    }
+    
     function Consts() {} 
     
     Consts.KEEP_LOGIN = "KEEP_LOGIN"
     Consts.USER_ID = "USER_ID";
+    Consts.USER_NAME = "USER_NAME";
     Consts.USER_PWD = "USER_PWD";
+    Consts.MSGINFO_TOP_ID = "MSGINFO_TOP_ID"
  
 
 	  
