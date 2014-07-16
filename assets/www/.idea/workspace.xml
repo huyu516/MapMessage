@@ -5,17 +5,17 @@
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Index.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1404732549506" ignored="false" />
-    <file path="/common.js" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405475309696" ignored="false" />
+    <file path="/common.js" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405504215439" ignored="false" />
     <file path="/login.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405387537343" ignored="false" />
     <file path="/dbsupport.js" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1404752960543" ignored="false" />
     <file path="/database.support.js" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405425790227" ignored="false" />
     <file path="/register.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405387104175" ignored="false" />
-    <file path="/MsgSearch.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405429369697" ignored="false" />
+    <file path="/MsgSearch.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405511456121" ignored="false" />
     <file path="/Login.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405475352377" ignored="false" />
     <file path="/MsgInfo.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405476428856" ignored="false" />
     <file path="/Register.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405425905394" ignored="false" />
-    <file path="/Map.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405496317773" ignored="false" />
-    <file path="/MsgList.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405473455154" ignored="false" />
+    <file path="/Map.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405504079751" ignored="false" />
+    <file path="/MsgList.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405512403472" ignored="false" />
     <file path="/MsgAdd.html" changelist="0f4f8e2e-49d2-4773-9f30-87956f0eb613" time="1405496801156" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,19 +76,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Map.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Map.html">
+      <file leaf-file-name="Login.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="39" selection-start="3672" selection-end="3689" vertical-scroll-proportion="5.153374">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MsgAdd.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MsgAdd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0">
+            <state line="113" column="47" selection-start="3945" selection-end="3945" vertical-scroll-proportion="3.2111554">
               <folding />
             </state>
           </provider>
@@ -111,13 +102,13 @@
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/lib/database.support.js" />
         <option value="$PROJECT_DIR$/Register.html" />
-        <option value="$PROJECT_DIR$/MsgSearch.html" />
-        <option value="$PROJECT_DIR$/MsgList.html" />
-        <option value="$PROJECT_DIR$/lib/common.js" />
         <option value="$PROJECT_DIR$/Login.html" />
         <option value="$PROJECT_DIR$/MsgInfo.html" />
-        <option value="$PROJECT_DIR$/MsgAdd.html" />
         <option value="$PROJECT_DIR$/Map.html" />
+        <option value="$PROJECT_DIR$/MsgAdd.html" />
+        <option value="$PROJECT_DIR$/lib/common.js" />
+        <option value="$PROJECT_DIR$/MsgSearch.html" />
+        <option value="$PROJECT_DIR$/MsgList.html" />
       </list>
     </option>
   </component>
@@ -320,7 +311,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="729" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -338,7 +329,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -438,20 +429,6 @@
         <state line="41" column="68" selection-start="1141" selection-end="1168" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="4" selection-start="3728" selection-end="3728" vertical-scroll-proportion="0.38650307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MsgSearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="622" selection-end="1036" vertical-scroll-proportion="0.24539877">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/database.support.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="43" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" />
@@ -459,42 +436,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="4" selection-start="3204" selection-end="3221" vertical-scroll-proportion="0.0" />
+        <state line="140" column="4" selection-start="3681" selection-end="3681" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="4" selection-start="3728" selection-end="3728" vertical-scroll-proportion="-5.8461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MsgSearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="51" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.24539877">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="40" selection-start="365" selection-end="365" vertical-scroll-proportion="-3.4969325">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="23" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.059760958">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MsgList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="38" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.061349694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="39" selection-start="3672" selection-end="3689" vertical-scroll-proportion="5.153374">
+        <state line="16" column="54" selection-start="634" selection-end="634" vertical-scroll-proportion="0.061349694">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="36" selection-start="2715" selection-end="2715" vertical-scroll-proportion="0.0">
+        <state line="56" column="46" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.061349694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="2253" selection-end="2402" vertical-scroll-proportion="0.6625767">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MsgList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="29" selection-start="4423" selection-end="4423" vertical-scroll-proportion="2.4989774">
+          <folding>
+            <marker date="1405516888434" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="47" selection-start="3945" selection-end="3945" vertical-scroll-proportion="3.2111554">
           <folding />
         </state>
       </provider>

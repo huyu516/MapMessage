@@ -37,12 +37,13 @@
 </div>
 </body>
 <script>
-<!--
-    var send_name = window.sessionStorage.getItem("MsgList_send_name");
-    var content = window.sessionStorage.getItem("MsgList_content");
-    var send_date_start = window.sessionStorage.getItem("MsgList_send_date_start");
-    var send_date_end = window.sessionStorage.getItem("MsgList_send_date_end");
-    var distance = window.sessionStorage.getItem("MsgList_distance");
+<!--// 目前先不管distance
+
+    var sender_name = window.sessionStorage.getItem(Consts.MSGLIST_SENDER_NAME);
+    var content = window.sessionStorage.getItem(Consts.MSGLIST_CONTENT);
+    var send_date_start = window.sessionStorage.getItem(Consts.MSGLIST_SEND_DATE_START);
+    var send_date_end = window.sessionStorage.getItem(Consts.MSGLIST_SEND_DATE_END);
+    // var distance = window.sessionStorage.getItem(Consts.MSGLIST_DISTANCE);
 
     var page_no = 1;
     var page_size = 10;
@@ -50,8 +51,36 @@
     function queryData() {
 
         var offset = (page_no - 1) * page_size;
-        var sql = "select * from MapMsg where is_top = 'true' order by msg_id desc limit ? offset ? ";
-        DBUtil.select(sql, [page_size, offset], function(tx, results) {
+        
+        // build sql 
+        var where_sql = " where is_top = 'true' ";
+        var where_params = [];
+        if(!BaseUtil.isEmpty(sender_name)) {
+            where_sql += " and sender_name like ? ";
+            where_params.push("%" + sender_name + "%"); 
+        }
+        
+        if(!BaseUtil.isEmpty(content)) {
+            where_sql += " and content like ? ";
+            where_params.push("%" + content + "%");
+        }
+        
+        if(!BaseUtil.isEmpty(send_date_start)) {
+            where_sql += " and send_date >= ? "; 
+            var from_dt = BaseUtil.getFromDate(send_date_start);
+            where_params.push(from_dt.getTime());
+        }
+         
+        if(!BaseUtil.isEmpty(send_date_end)) {
+            where_sql += " and send_date <= ? ";
+            var to_dt = BaseUtil.getToDate(send_date_end);
+            where_params.push(to_dt.getTime());
+        }
+        
+        where_params.push(page_size, offset);
+        
+        var sql = "select * from MapMsg " + where_sql + " order by msg_id desc limit ? offset ? ";
+        DBUtil.select(sql, where_params, function(tx, results) {
         
             var resutList = DBUtil.resultsToList(results);
             
@@ -66,6 +95,7 @@
             var innerHTML = "";
             for(var i = 0; i < resutList.length; i++) {
             	var obj = resutList[i]
+            	
                 innerHTML += "<li>";
                 innerHTML += "    <a href='#' onclick='viewMsg(" + obj.msg_id + ")'>";
                 innerHTML += "	      <h2>" + obj.content + "</h2>";
@@ -93,8 +123,8 @@
 	function viewMsg(msg_id) {
 	    window.sessionStorage.setItem(Consts.MSGINFO_TOP_ID, msg_id);
         window.location = "MsgInfo.html";
-	}   
-  
+	}
+
 -->
 </script>
 </html>

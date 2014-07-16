@@ -18,12 +18,12 @@
            if(msg_count === 0) {
            	   var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
            	   		   + "values(?,?,?,?,?,?,?,?,?)";
-		       DBUtil.execute(sql, [1111, "饭店在哪里呢？", "admin", "admin", new Date(), 116.404, 39.915, true, null]);
-		       DBUtil.execute(sql, [1112, "不知道。", "admin", "admin", new Date(), null, null, false, 1111]);
-		       DBUtil.execute(sql, [1113, "向东走。", "admin", "admin", new Date(), null, null, false, 1111]);
-		       DBUtil.execute(sql, [1114, "在向西。", "admin", "admin", new Date(), null, null, false, 1111]);	
+		       DBUtil.execute(sql, [1111, "饭店在哪里呢？", "admin", "admin", new Date().getTime(), 116.404, 39.915, true, null]);
+		       DBUtil.execute(sql, [1112, "不知道。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);
+		       DBUtil.execute(sql, [1113, "向东走。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);
+		       DBUtil.execute(sql, [1114, "在向西。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);	
 		       
-		       DBUtil.execute(sql, [1115, "火车站怎么走？", "admin", "admin", new Date(), 116.400, 39.910, true, null]);
+		       DBUtil.execute(sql, [1115, "火车站怎么走？", "admin", "admin", new Date().getTime(), 116.400, 39.910, true, null]);
            }
  	   })
 

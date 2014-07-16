@@ -55,8 +55,9 @@
 
 	document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-    	// DBUtil.execute('delete from MapMsg');
-    	DBUtil.initOnce();
+    	DBUtil.execute('delete from MapMsg');
+    	DBUtil.initOnce();  	            	
+    	
 		// keep_login is a string
         var keep_login = window.localStorage.getItem(Consts.KEEP_LOGIN);
         if(keep_login == "true") {

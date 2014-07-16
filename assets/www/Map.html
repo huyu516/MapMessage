@@ -50,8 +50,8 @@
 /***********************自定义控件end**********************/  
     
     map.addEventListener("dblclick", function(e) {      // 双击地图添加新的消息
-        window.sessionStorage.setItem("MsgAdd_LONGITUDE", e.point.lng);
-    	window.sessionStorage.setItem("MsgAdd_LATITUDE", e.point.lat);
+        window.sessionStorage.setItem(Consts.MSGADD_LONGITUDE, e.point.lng);
+    	window.sessionStorage.setItem(Consts.MSGADD_LATITUDE, e.point.lat);
     	window.location = "MsgAdd.html";
     });   
   

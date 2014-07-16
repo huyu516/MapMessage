@@ -1,4 +1,8 @@
-
+	
+	String.prototype.replaceAll = function (s1, s2) { 
+	   return this.replace(new RegExp(s1,"gm"),s2);
+    }
+	
 	function BaseUtil() {}
     
     BaseUtil.isEmpty = function(val) {
@@ -114,6 +118,32 @@
 	
 		return this.dateFormat(time) + " " + hour + ":" + minute + ":" + second;
 	}
+	
+	BaseUtil.getToDate = function(dt) {  // 支持date "2010-10-10" "2010/10/10"  
+	    var result;  	
+        if(typeof dt == "string") {
+		    result = new Date(dt.replaceAll("-", "/"));
+	    } else {
+		    result = new Date(dt);
+	    }
+	    result.setHours(23);
+	    result.setMinutes(59);
+	    result.setSeconds(59);
+	    return result;		
+	}
+	
+	BaseUtil.getFromDate = function(dt) {
+	    var result;  	
+        if(typeof dt == "string") {
+		    result = new Date(dt.replaceAll("-", "/"));
+	    } else {
+		    result = new Date(dt);
+	    }
+	    result.setHours(0);
+	    result.setMinutes(0);
+	    result.setSeconds(0);
+	    return result;		
+	}
 
     BaseUtil.exit = function() {
         alert("退出程序");
@@ -133,8 +163,17 @@
     Consts.USER_ID = "USER_ID";
     Consts.USER_NAME = "USER_NAME";
     Consts.USER_PWD = "USER_PWD";
-    Consts.MSGINFO_TOP_ID = "MSGINFO_TOP_ID"
-    
- 
+
+    Consts.MSGLIST_SENDER_NAME = "MSGLIST_SENDER_NAME";
+    Consts.MSGLIST_CONTENT = "MSGLIST_CONTENT";
+    Consts.MSGLIST_SEND_DATE_START = "MSGLIST_SEND_DATE_START";
+    Consts.MSGLIST_SEND_DATE_END = "MSGLIST_SEND_DATE_END";
+    Consts.MSGLIST_DISTANCE = "MSGLIST_DISTANCE";
+
+    Consts.MSGINFO_TOP_ID = "MSGINFO_TOP_ID";
+
+    Consts.MSGADD_LONGITUDE = "MSGADD_LONGITUDE";
+    Consts.MSGADD_LATITUDE = "MSGADD_LATITUDE";
+
 
 	  

@@ -30,23 +30,25 @@
 		<form action="#" >
 	        <ul data-role="listview" data-inset="true">
 	        	<li data-role="fieldcontain">
-	                <label for="send_name">主题发送人名称：</label>
-	            	<input id="send_name" name="send_name" type="text" />
+	                <label for="sender_name">主题发送人名称：</label>
+	            	<input id="sender_name" name="sender_name" type="text" />
 	            </li>
 	            <li data-role="fieldcontain">
 	                <label for="content">主题内容：</label>
 	            	<input id="content" name="content" type="text" />
 	            </li>
 	            <li data-role="fieldcontain">
-					<label for="send_date_start">检查日期:</label>
+					<label for="send_date_start">发送日期:</label>
 					<input id="send_date_start" name="send_date_start" type="text" />
 					<label for="send_date_end">至</label>
 					<input id="send_date_end" name="send_date_end" type="text" />
 				</li>
+				<!--  
 				<li data-role="fieldcontain">
 					<label for="distance">据当前位置距离（公里）:</label>
 					<input id="distance" name="distance" value="10" defaultValue="10" type="range" min="1" max="30">
 				</li>
+				-->
 	            <li class="ui-body">
 	            	<fieldset class="ui-grid-a">
    		 				<div class="ui-block-a">
@@ -70,7 +72,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         BaseUtil.initScrollDate("send_date_start");
-        BaseUtil.initScrollDate("send_date_end", BaseUtil.dateFormat(new Date()))
+        BaseUtil.initScrollDate("send_date_end");
     }
     
     function reLogin() {
@@ -82,14 +84,14 @@
     }
     
     function search() {
-        var fields = ["send_name", "content", "send_date_start", "send_date_end", "distance"];
-        for(var i = 0; i < fields.length; i++) {
-            var field_name = fields[i];
-            var field_value = jQuery("#" + field_name).val();
-            window.sessionStorage.setItem("MsgList_" + field_name, field_value);
-            
-            window.location = "MsgList.html";
+        var fields = ["sender_name", "content", "send_date_start", "send_date_end", "distance"];
+        for (var i = 0; i < fields.length; i++) {
+        	var field_name = fields[i];
+        	var field_value = jQuery("#" + field_name).val();
+        	window.sessionStorage.setItem(Consts["MSGLIST_" + field_name.toUpperCase()], field_value);
         }
+        
+        window.location = "MsgList.html";
     }
 	
 </script>

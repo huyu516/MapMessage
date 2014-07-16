@@ -113,7 +113,7 @@
 
         var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
                 + "values(?,?,?,?,?,?,?,?,?)"
-        DBUtil.execute(sql, [BaseUtil.getUUID(), new_content, user_id, user_name, new Date(), null, user_name, false, top_id]);
+        DBUtil.execute(sql, [BaseUtil.getUUID(), new_content, user_id, user_name, new Date().getTime(), null, user_name, false, top_id]);
 
         window.sessionStorage.setItem(SCROLL_TO_BOTTOM, true)
         

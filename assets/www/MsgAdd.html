@@ -51,8 +51,8 @@
     var user_id = window.localStorage.getItem(Consts.USER_ID);
     var user_name = window.localStorage.getItem(Consts.USER_NAME);
 																			
-    var longitude = window.sessionStorage.getItem("MsgAdd_LONGITUDE") * 1;
-    var latitude = window.sessionStorage.getItem("MsgAdd_LATITUDE") * 1;
+    var longitude = window.sessionStorage.getItem(Consts.MSGADD_LONGITUDE) * 1;
+    var latitude = window.sessionStorage.getItem(Consts.MSGADD_LATITUDE) * 1;
 
     function sendMsg() {
         var new_content = jQuery("#new_content").val();
@@ -64,7 +64,7 @@
 
         var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
                 + "values(?,?,?,?,?,?,?,?,?)"
-        DBUtil.execute(sql, [BaseUtil.getUUID(), new_content, user_id, user_name, new Date(), longitude, latitude, true, null]);
+        DBUtil.execute(sql, [BaseUtil.getUUID(), new_content, user_id, user_name, new Date().getTime(), longitude, latitude, true, null]);
         
         window.location = "Map.html";
     }
