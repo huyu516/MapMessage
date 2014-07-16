@@ -75,7 +75,7 @@
 					var topMsg = jQuery(this).data(MSG_OBJ);
 					
 					// replys to top
-			        var sql = "select * from MapMsg where top_id = ? order by msg_id";
+			        var sql = "select * from MapMsg where top_id = ? order by send_date";
 			        DBUtil.select(sql, [topMsg.msg_id], function(tx, results) {
 			        		
 			            var msgList = DBUtil.resultsToList(results);

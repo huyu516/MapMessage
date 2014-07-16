@@ -64,7 +64,7 @@
 	document.addEventListener("deviceready", onDeviceReady, false);	
 	function onDeviceReady() {
 		// replys to top
-        sql = "select * from MapMsg where top_id = ? order by msg_id";
+        sql = "select * from MapMsg where top_id = ? order by send_date";
         DBUtil.select(sql, [top_id], function(tx, results) {
         		
             var msgList = DBUtil.resultsToList(results);

@@ -75,17 +75,7 @@
     <favorites_list name="www" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Login.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="47" selection-start="3945" selection-end="3945" vertical-scroll-proportion="3.2111554">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -102,13 +92,13 @@
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/lib/database.support.js" />
         <option value="$PROJECT_DIR$/Register.html" />
-        <option value="$PROJECT_DIR$/Login.html" />
         <option value="$PROJECT_DIR$/MsgInfo.html" />
         <option value="$PROJECT_DIR$/Map.html" />
         <option value="$PROJECT_DIR$/MsgAdd.html" />
         <option value="$PROJECT_DIR$/lib/common.js" />
         <option value="$PROJECT_DIR$/MsgSearch.html" />
         <option value="$PROJECT_DIR$/MsgList.html" />
+        <option value="$PROJECT_DIR$/Login.html" />
       </list>
     </option>
   </component>
@@ -311,7 +301,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="729" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -329,7 +319,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18098159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -443,51 +433,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="4" selection-start="3728" selection-end="3728" vertical-scroll-proportion="-5.8461537">
+        <state line="108" column="4" selection-start="3728" selection-end="3728" vertical-scroll-proportion="0.46625766">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgSearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="51" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.24539877">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MsgInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="54" selection-start="634" selection-end="634" vertical-scroll-proportion="0.061349694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MsgAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="46" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.061349694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2253" selection-end="2402" vertical-scroll-proportion="0.6625767">
+        <state line="86" column="51" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.26584867">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MsgList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="29" selection-start="4423" selection-end="4423" vertical-scroll-proportion="2.4989774">
+        <state line="118" column="29" selection-start="4496" selection-end="4496" vertical-scroll-proportion="0.9570552">
           <folding>
-            <marker date="1405516888434" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1405518098905" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MsgInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="54" selection-start="634" selection-end="634" vertical-scroll-proportion="0.06748466">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MsgAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="46" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.06748466">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="43" selection-start="2163" selection-end="2163" vertical-scroll-proportion="2.7402864">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="47" selection-start="3945" selection-end="3945" vertical-scroll-proportion="3.2111554">
+        <state line="103" column="47" selection-start="3657" selection-end="3657" vertical-scroll-proportion="3.2111554">
           <folding />
         </state>
       </provider>

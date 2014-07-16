@@ -79,7 +79,7 @@
         
         where_params.push(page_size, offset);
         
-        var sql = "select * from MapMsg " + where_sql + " order by msg_id desc limit ? offset ? ";
+        var sql = "select * from MapMsg " + where_sql + " order by send_date desc limit ? offset ? ";
         DBUtil.select(sql, where_params, function(tx, results) {
         
             var resutList = DBUtil.resultsToList(results);
