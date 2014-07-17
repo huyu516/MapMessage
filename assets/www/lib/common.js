@@ -4,7 +4,11 @@
     }
 	
 	function BaseUtil() {}
-    
+
+    BaseUtil.success = function() {}
+
+    BaseUtil.error = function() {}
+
     BaseUtil.isEmpty = function(val) {
         return val == null || typeof val == "undefined" ||
                 typeof val == "string" && (val == "undefined" || val == "null" || val.replace(new RegExp(" ","gm"), "").length == 0)
@@ -16,8 +20,7 @@
 
     BaseUtil.resetForm = function() {
 	    jQuery(":text,:password").val("");
-        // slider
-        jQuery("input[defaultValue]").each(function() {
+        jQuery("input[defaultValue]").each(function() {       // slider
     		var self = jQuery(this);
     		self.val(self.attr("defaultValue"));
     		self.slider('refresh');
@@ -43,7 +46,7 @@
 				: document.documentElement.scrollTop;
         var c = document.documentElement.scrollTop == 0 ? document.body.scrollHeight
 				: document.documentElement.scrollHeight;
-	    return (a + b >= c - 3);
+	    return (a + b >= c - 30);  // 30为修正值越大越早触发滚动
     }
     
     BaseUtil.initScrollDate = function(obj_id, obj_date) {
@@ -144,10 +147,6 @@
 	    result.setSeconds(0);
 	    return result;		
 	}
-
-    BaseUtil.exit = function() {
-        alert("退出程序");
-    }
     
     BaseUtil.scrollToBottom = function() {
     	window.scrollTo(0, document.body.scrollHeight); 
@@ -157,6 +156,28 @@
     	window.history.go(-1);
     }
     
+/*************** Android plugin start ********************/  
+  
+    BaseUtil.exit = function() {
+        cordova.exec(this.success, this.error, 'AndroidHelper', 'EXIT', [] );
+    }
+    
+    BaseUtil.toast = function(msg, isShortTime) {
+    	var params = [ msg, isShortTime || false ];
+        cordova.exec(this.success, this.error, 'AndroidHelper', 'TOAST', params);
+    }
+    
+	BaseUtil.location = function(success, error, openGps, waitSecond) {
+		var params = [	openGps    || false,
+						waitSecond || 10,
+						success    || this.success,
+						error      || this.error 
+					 ];
+		return cordova.exec(success, error, 'BaiduLocation', 'LOCATION', params);
+	}
+
+/*************** Android plugin end   ********************/    
+
     function Consts() {} 
     
     Consts.KEEP_LOGIN = "KEEP_LOGIN"
@@ -174,6 +195,6 @@
 
     Consts.MSGADD_LONGITUDE = "MSGADD_LONGITUDE";
     Consts.MSGADD_LATITUDE = "MSGADD_LATITUDE";
-
-
-	  
+    
+    Consts.LATITUDE = "latitude";
+    Consts.LONGITUDE = "longitude";

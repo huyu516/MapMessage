@@ -101,6 +101,16 @@
     <feature name="InAppBrowser">
       <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
     </feature>
+    
+    <!-- My Plugins start  -->
+    <feature name="AndroidHelper"> 
+        <param name="android-package" value="com.lzu.mapmessage.plugin.AndroidHelper" /> 
+    </feature> 
+    <feature name="BaiduLocation"> 
+        <param name="android-package" value="com.lzu.mapmessage.plugin.BaiduLocation" /> 
+    </feature> 
+    <!-- My Plugins end    -->
+    
     <!-- Deprecated plugins element. Remove in 3.0 -->
     <plugins>
     	<plugin name="Storage" value="org.apache.cordova.Storage" />

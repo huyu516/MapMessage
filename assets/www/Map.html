@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-mequiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<script src="lib/jquery.mobile/jquery.js"></script>
 	<script src="lib/common.js"></script>
@@ -18,23 +18,19 @@
 </body>
 </html>
 <script>
-	
-	var map = new BMap.Map("allmap");               	// 创建Map实例
-	var point = new BMap.Point(116.404, 39.915);    	// 创建点坐标
-	map.centerAndZoom(point,15);                    	// 初始化地图, 设置中心点坐标和地图级别。
-	map.addControl(new BMap.ZoomControl());         	// 添加地图缩放控件
-		
+
 /***********************自定义控件start********************/     
-	function ZoomControl(){                         	// 定义一个自定义控件类 
-	    this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT       // 设置默认停靠位置
+	function ZoomControl() {                         		    // 定义一个自定义控件类 
+	    this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT       	    // 设置默认停靠位置
 	    
-	    var offset_left = (window.innerWidth - 220) / 2; // 计算水平偏移, div宽220
-	    this.defaultOffset = new BMap.Size(offset_left, 15);     // 设置偏移量, 第一个参数正向右，第二个参数正向上      
+	    var offset_left = (window.innerWidth - 220) / 2;	    // 计算水平偏移, div宽220
+	    this.defaultOffset = new BMap.Size(offset_left, 15);    // 设置偏移量, 第一个参数正向右，第二个参数正向上      
 	}      
-	ZoomControl.prototype = new BMap.Control();         // 继承BMap.Control      
+	ZoomControl.prototype = new BMap.Control();         	    // 继承BMap.Control      
 	
 	// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回  
-	ZoomControl.prototype.initialize = function(map) {      
+	ZoomControl.prototype.initialize = function(map) {   
+	   
 		var divHtml = "<div style='border:2px solid gray;background-color:white;font-size:20px;width:220px' align='center' >"
 					+ "    <a href='#' style='text-decoration:none' onclick='location=\"MsgSearch.html\"' >信息查询</a>"
 					+ "    &nbsp;&nbsp;&nbsp;"
@@ -45,66 +41,81 @@
 		map.getContainer().appendChild(divObj);    
 		return divObj;    
 	} 
-	
-	map.addControl(new ZoomControl())                   // 把自定义控件添加到地图当中      
-/***********************自定义控件end**********************/  
+/***********************自定义控件end**********************/
     
-    map.addEventListener("dblclick", function(e) {      // 双击地图添加新的消息
-        window.sessionStorage.setItem(Consts.MSGADD_LONGITUDE, e.point.lng);
-    	window.sessionStorage.setItem(Consts.MSGADD_LATITUDE, e.point.lat);
-    	window.location = "MsgAdd.html";
-    });   
-  
     document.addEventListener("deviceready", onDeviceReady, false);	
 	function onDeviceReady() {
-/***********************地图信息标注点start*********************/ 
-        var sql = "select * from MapMsg where is_top = 'true' ";
-        DBUtil.select(sql, [], function(tx, results) {
-            var resutList = DBUtil.resultsToList(results);
-            for (var i = 0; i < resutList.length; i++) {
-            	var msgObj = resutList[i]; 
-            		  
-            	var marker = new BMap.Marker(new BMap.Point(msgObj.longitude, msgObj.latitude));
-				map.addOverlay(marker);
-				
-				var MSG_OBJ = "MSG_OBJ";
-				jQuery(marker).data(MSG_OBJ, msgObj);  
-				
-				marker.addEventListener("click", function(){
-				
-					var topMsg = jQuery(this).data(MSG_OBJ);
-					
-					// replys to top
-			        var sql = "select * from MapMsg where top_id = ? order by send_date";
-			        DBUtil.select(sql, [topMsg.msg_id], function(tx, results) {
-			        		
-			            var msgList = DBUtil.resultsToList(results);
-			            
-			            var infoWindowHTML = "<div style='overflow:auto;'>"
-			            				   + "    <div style='width:100%'>" + topMsg.content + "</div>";		    
 
-			            for(var i=0; i<msgList.length; i++) {
-			            	var msgObj = msgList[i];
-			            	
-			            	infoWindowHTML += "   <div style='width:100%'>" + msgObj.content + "</div>";	
-			            }
-			            
-			            infoWindowHTML += "</div>";	
-			            
-			            var opts = {                                                 // 信息窗口设置
-			            	width : 180,      
-			            	height: 300,      
-			            	title : "<a href='#' onclick='viewMsg(" + topMsg.msg_id + ")'>发送消息</a>"  
-			       		}
-			            
-			            var infoWindow = new BMap.InfoWindow(infoWindowHTML, opts);  // 创建信息窗口对象
-			        	map.openInfoWindow(infoWindow, marker.getPosition());        // 打开信息窗口
-			        })    // end DBUtil.select ... top_id = ?   
-			    })    // end marker.addEventListener 
-            }    // end for
-        })    // end DBUtil.select ... is_top = "true"
-/***********************地图信息标注点end***********************/ 
-	}    // end onDeviceReady   
+        BaseUtil.location(function(location) {                  // 获取当前位置
+
+            var map = new BMap.Map("allmap");               	// 创建Map实例
+
+            var latitude = location[Consts.LATITUDE];           // 当前位置经纬度
+            var longitude = location[Consts.LONGITUDE];
+            var point = new BMap.Point(longitude, latitude);    // 创建点坐标
+            map.centerAndZoom(point, 15);                       // 初始化地图, 设置中心点坐标和地图级别。
+            //    var point = new BMap.Point(116.404, 39.915);    	
+
+            map.addControl(new ZoomControl())                   // 把自定义控件添加到地图当中
+            map.addControl(new BMap.ZoomControl());         	// 添加地图缩放控件
+
+            map.addEventListener("dblclick", function(e) {      // 双击地图添加新的消息
+                window.sessionStorage.setItem(Consts.MSGADD_LONGITUDE, e.point.lng);
+                window.sessionStorage.setItem(Consts.MSGADD_LATITUDE, e.point.lat);
+                window.location = "MsgAdd.html";
+            });
+            
+            BaseUtil.toast("双击地图发送新信息，点击一个标记可以查看相关信息");
+
+/***********************地图信息标注点start*********************/
+            var sql = "select * from MapMsg where is_top = 'true' ";
+            DBUtil.select(sql, [], function(tx, results) {
+                var resutList = DBUtil.resultsToList(results);
+                for (var i = 0; i < resutList.length; i++) {
+                    var msgObj = resutList[i];
+
+                    var marker = new BMap.Marker(new BMap.Point(msgObj.longitude, msgObj.latitude));
+                    map.addOverlay(marker);
+
+                    var MSG_OBJ = "MSG_OBJ";
+                    jQuery(marker).data(MSG_OBJ, msgObj);
+
+                    marker.addEventListener("click", function(){
+
+                        var topMsg = jQuery(this).data(MSG_OBJ);
+
+                        // replys to top
+                        var sql = "select * from MapMsg where top_id = ? order by send_date";
+                        DBUtil.select(sql, [topMsg.msg_id], function(tx, results) {
+
+                            var msgList = DBUtil.resultsToList(results);
+
+                            var infoWindowHTML = "<div style='overflow:auto;'>"
+                                               + "    <div style='width:100%'>" + topMsg.content + "</div>";
+
+                            for(var i=0; i<msgList.length; i++) {
+                                var msgObj = msgList[i];
+
+                                infoWindowHTML += "<div style='width:100%'>" + msgObj.content + "</div>";
+                            }
+
+                            infoWindowHTML += "</div>";
+
+                            var opts = {                                                 // 信息窗口设置
+                                width : 180,
+                                height: 300,
+                                title : "<a href='#' onclick='viewMsg(" + topMsg.msg_id + ")'>发送消息</a>"
+                            }
+
+                            var infoWindow = new BMap.InfoWindow(infoWindowHTML, opts);  // 创建信息窗口对象
+                            map.openInfoWindow(infoWindow, marker.getPosition());        // 打开信息窗口
+                        })    // end DBUtil.select ... top_id = ?
+                    })    // end marker.addEventListener
+                }    // end for
+            })    // end DBUtil.select ... is_top = "true"
+/***********************地图信息标注点end***********************/
+        })    // end BaseUtil.location
+	}    // end onDeviceReady
 	
 	function viewMsg(msg_id) {                          // 查看某一条主题的相关消息
 	    window.sessionStorage.setItem(Consts.MSGINFO_TOP_ID, msg_id);

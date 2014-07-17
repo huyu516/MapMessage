@@ -6,34 +6,21 @@
 
    DBUtil.error = function(err) { 
        alert(BaseUtil.getJsonStr(err)) 	
-   };
+   }
 
    DBUtil.success = function() { /* BaseUtil.alert("操作成功！") */ };
    
    DBUtil.initOnce = function() {
    
    	   DBUtil.execute('create table if not exists MapMsg (msg_id primary key, content, sender_id, sender_name, send_date, longitude, latitude, is_top, top_id)');		
-   	   DBUtil.select('select count(*) from MapMsg', [], function(tx, results) {
-           var msg_count = DBUtil.resultsToNum(results);         
-           if(msg_count === 0) {
-           	   var sql = "insert into MapMsg(msg_id,content,sender_id,sender_name,send_date,longitude,latitude,is_top,top_id) "
-           	   		   + "values(?,?,?,?,?,?,?,?,?)";
-		       DBUtil.execute(sql, [1111, "饭店在哪里呢？", "admin", "admin", new Date().getTime(), 116.404, 39.915, true, null]);
-		       DBUtil.execute(sql, [1112, "不知道。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);
-		       DBUtil.execute(sql, [1113, "向东走。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);
-		       DBUtil.execute(sql, [1114, "在向西。", "admin", "admin", new Date().getTime(), null, null, false, 1111]);	
-		       
-		       DBUtil.execute(sql, [1115, "火车站怎么走？", "admin", "admin", new Date().getTime(), 116.400, 39.910, true, null]);
-           }
- 	   })
 
        DBUtil.execute('create table if not exists UserInfo (user_id, user_name, user_pwd)');
  	   DBUtil.select('select count(*) from UserInfo', [], function(tx, results) {
            var user_count = DBUtil.resultsToNum(results);
            if(user_count === 0) {
-           	   var sql = "insert into UserInfo(user_id ,user_name, user_pwd)" 
-           	   		   + "values(?, ?, ?)";
-           	   DBUtil.execute(sql, ["admin", "admin", "admin"]);
+           	   var sql = "insert into UserInfo(user_id ,user_name, user_pwd) " 
+    				   + "values('admin', 'admin', 'admin')";
+           	   DBUtil.execute(sql);
            }
  	   })
        
