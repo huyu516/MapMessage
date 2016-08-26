@@ -1,9 +1,8 @@
-	
 	String.prototype.replaceAll = function (s1, s2) { 
 	   return this.replace(new RegExp(s1,"gm"),s2);
     }
 	
-	function BaseUtil() {}
+	var BaseUtil = {};
 
     BaseUtil.success = function() {}
 
@@ -20,6 +19,7 @@
 
     BaseUtil.resetForm = function() {
 	    jQuery(":text,:password").val("");
+	    
         jQuery("input[defaultValue]").each(function() {       // slider
     		var self = jQuery(this);
     		self.val(self.attr("defaultValue"));
@@ -29,9 +29,11 @@
     
     BaseUtil.getJsonStr = function(json) {
         var result = "";
+        
         for(var prop in json) {
             result += prop + ":" + json[prop] + " ";
         }
+        
         return result + "\n";
     }
     
@@ -91,8 +93,9 @@
 	}
 	
 	BaseUtil.dateFormat = function(time) {
-		if (this.isEmpty(time))
+		if (this.isEmpty(time)) {
 			return "";
+		}
 	
 		var dt = new Date(time);
 	
@@ -106,13 +109,15 @@
 	}
 	
 	BaseUtil.datetimeFormat = function(time) {
-		if (this.isEmpty(time))
+		if (this.isEmpty(time)) {
 			return "";
+		}
 	
 		var dt = new Date(time);
 	
 		var hour = dt.getHours();
 		if (hour < 10) hour = "0" + hour;
+		
 		var minute = dt.getMinutes();
 		if (minute < 10) minute = "0" + minute;
 	
@@ -124,27 +129,33 @@
 	
 	BaseUtil.getToDate = function(dt) {  // 支持date "2010-10-10" "2010/10/10"  
 	    var result;  	
+	    
         if(typeof dt == "string") {
 		    result = new Date(dt.replaceAll("-", "/"));
 	    } else {
 		    result = new Date(dt);
 	    }
+	    
 	    result.setHours(23);
 	    result.setMinutes(59);
 	    result.setSeconds(59);
+	    
 	    return result;		
 	}
 	
 	BaseUtil.getFromDate = function(dt) {
-	    var result;  	
+	    var result;  
+	    	
         if(typeof dt == "string") {
 		    result = new Date(dt.replaceAll("-", "/"));
 	    } else {
 		    result = new Date(dt);
 	    }
+	    
 	    result.setHours(0);
 	    result.setMinutes(0);
 	    result.setSeconds(0);
+	    
 	    return result;		
 	}
     
@@ -177,8 +188,7 @@
 	}
 
 /*************** Android plugin end   ********************/    
-
-    function Consts() {} 
+    var Consts = {};
     
     Consts.KEEP_LOGIN = "KEEP_LOGIN"
     Consts.USER_ID = "USER_ID";

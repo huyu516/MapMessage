@@ -55,6 +55,7 @@
         // build sql 
         var where_sql = " where is_top = 'true' ";
         var where_params = [];
+        
         if(!BaseUtil.isEmpty(sender_name)) {
             where_sql += " and sender_name like ? ";
             where_params.push("%" + sender_name + "%"); 

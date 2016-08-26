@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>登陆</title>
 	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.css" >
 	<script src="lib/jquery.mobile/jquery.js"></script>
 	<script src="lib/jquery.mobile/jquery.mobile.js"></script>
@@ -54,8 +53,8 @@
 <script>
 
 	document.addEventListener("deviceready", onDeviceReady, false);
+	
     function onDeviceReady() {
-    
     	DBUtil.initOnce();  
     	
         // keep_login is a string
@@ -76,7 +75,6 @@
     }
     
     function login() {
-    
         var user_id = jQuery("#user_id").val();
     	var user_pwd = jQuery("#user_pwd").val();
     	
@@ -91,8 +89,10 @@
     	}
     	    	
         var sql = "select * from UserInfo where user_id = ? and user_pwd = ?"
+        
     	DBUtil.select(sql, [user_id, user_pwd], function(tx, results) {
             var user = DBUtil.resultsToObj(results);
+            
             if(user != null) {
                 var keep_login = jQuery("#keep_login").is(":checked");
 

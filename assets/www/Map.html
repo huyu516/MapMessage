@@ -30,7 +30,6 @@
 	
 	// 自定义控件必须实现initialize方法，并且将控件的DOM元素返回  
 	ZoomControl.prototype.initialize = function(map) {   
-	   
 		var divHtml = "<div style='border:2px solid gray;background-color:white;font-size:20px;width:220px' align='center' >"
 					+ "    <a href='#' style='text-decoration:none' onclick='location=\"MsgSearch.html\"' >信息查询</a>"
 					+ "    &nbsp;&nbsp;&nbsp;"
@@ -44,10 +43,9 @@
 /***********************自定义控件end**********************/
     
     document.addEventListener("deviceready", onDeviceReady, false);	
+    
 	function onDeviceReady() {
-
         BaseUtil.location(function(location) {                  // 获取当前位置
-
             var map = new BMap.Map("allmap");               	// 创建Map实例
 
             var latitude = location[Consts.LATITUDE];           // 当前位置经纬度
@@ -69,6 +67,7 @@
 
 /***********************地图信息标注点start*********************/
             var sql = "select * from MapMsg where is_top = 'true' ";
+            
             DBUtil.select(sql, [], function(tx, results) {
                 var resutList = DBUtil.resultsToList(results);
                 for (var i = 0; i < resutList.length; i++) {
