@@ -16,6 +16,13 @@
 - 主要目录：`src/com.lzu.mapmessage`放的是`Activty`和`PhongGap`插件、`assets`是全部的页面和`JS`脚本
 
 ## 截图
-![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
 
+![登录](https://raw.githubusercontent.com/huyu516/MapMessage/master/screenshorts/login.png)
 
+![消息查询](https://raw.githubusercontent.com/huyu516/MapMessage/master/screenshorts/search.png)
+
+![消息列表](https://raw.githubusercontent.com/huyu516/MapMessage/master/screenshorts/list.png)
+
+![消息恢复](https://raw.githubusercontent.com/huyu516/MapMessage/master/screenshorts/add.png)
+
+![地图模式](https://raw.githubusercontent.com/huyu516/MapMessage/master/screenshorts/map.png)
