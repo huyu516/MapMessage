@@ -15,12 +15,13 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 
+// 百度定位插件
 public class BaiduLocation extends CordovaPlugin {
-	
+
 	private static String LATITUDE = "latitude";
-	
+
 	private static String LONGITUDE = "longitude";
-	
+
 	private static String ERROR_MSG = "errorMsg";
 
 	private JSONObject result = null;
@@ -30,7 +31,7 @@ public class BaiduLocation extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray data,
 			CallbackContext callbackContext) throws JSONException {
-		
+
 		boolean openGps = data.getBoolean(0);
 		int waitSecond = data.getInt(1);
 
@@ -42,16 +43,14 @@ public class BaiduLocation extends CordovaPlugin {
 				throw new Exception("错误：定位超时！");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			callbackContext.error(e.getMessage());
 			return true;
 		}
-		
-		System.out.println(result.get(LONGITUDE) + " " + result.get(LONGITUDE));
-		
+
 		callbackContext.sendPluginResult(new PluginResult(
 				PluginResult.Status.OK, result));
 		callbackContext.success(result);
+
 		return false;
 	}
 
@@ -76,8 +75,9 @@ public class BaiduLocation extends CordovaPlugin {
 				public void onReceiveLocation(BDLocation location) {
 					try {
 						result = new JSONObject();
-						
-						if (location.getLatitude() > 1 || location.getLongitude() > 1) {
+
+						if (location.getLatitude() > 1
+								|| location.getLongitude() > 1) {
 							result.put(LATITUDE, location.getLatitude());
 							result.put(LONGITUDE, location.getLongitude());
 						} else {
@@ -107,8 +107,8 @@ public class BaiduLocation extends CordovaPlugin {
 			option.setCoorType("bd09ll");
 			option.setScanSpan(5000);
 			mLocationClient.setLocOption(option);
-			
 		}
+
 	}
 
 }
